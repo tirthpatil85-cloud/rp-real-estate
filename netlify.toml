@@ -1,7 +1,8 @@
-# The site is committed as prebuilt static files, so no build step is needed.
+# The site is committed as prebuilt static files. The build step copies them
+# into `dist`, which is the publish directory (matching the project settings).
 [build]
-  publish = "."
-  command = "echo No build step - serving prebuilt files"
+  publish = "dist"
+  command = "rm -rf dist && mkdir -p dist && cp -R index.html forms.html favicon.svg robots.txt assets dist/"
 
 [[redirects]]
   from = "/*"
